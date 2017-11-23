@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module Knocal
   class Application < Rails::Application
     config.active_record.raise_in_transactional_callbacks = true
+    config.i18n.default_locale = :ja
 
     config.generators do |g|
       g.javascripts false
