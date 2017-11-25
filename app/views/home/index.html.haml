@@ -1,1 +1,18 @@
-%h1 Hello World!
+%h1 Knocal
+
+%h4
+  - current_user.email
+
+%div
+  = link_to "質問する", new_question_path
+
+%div
+  = link_to "質問を見る", questions_path
+
+%ul
+  %li
+    %a{ :href => new_user_session_path }
+      サインイン
+  %li
+    %a{ :href => new_user_registration_path }
+      サインアップ

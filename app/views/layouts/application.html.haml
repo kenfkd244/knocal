@@ -7,11 +7,11 @@
     = csrf_meta_tags
 
   %body
-  = render partial: 'common/header'
+    = render partial: 'common/header'
 
-  %div.container
-    %div.row
-      %div.col-lg-12
-      = yield
-    %footer.row.text-center
-      %p (C) Knocal 2017
+    %div.container
+      %div.row
+        %div.col-lg-12
+        = yield
+      %footer.row.text-center
+        %p (C) Knocal 2017

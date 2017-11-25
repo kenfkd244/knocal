@@ -1,0 +1,13 @@
+%div
+  %div
+    = form_for current_user do |f|
+      %h2 登録情報
+      %div
+        %div
+          = f.text_field :name, placeholder: "名前"
+        %div
+          = f.text_field :nickname, placeholder: "ニックネーム"
+        %div
+          = f.text_field :postnumber, placeholder: "郵便番号"
+      %div
+        = f.submit "送信"

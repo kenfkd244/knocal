@@ -1,0 +1,7 @@
+%div
+  %div
+    = form_for @question do |f|
+      = f.label :content, "質問内容"
+      = f.text_area :content
+
+      = f.submit "Send"
