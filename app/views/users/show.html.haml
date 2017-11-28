@@ -1,8 +1,8 @@
 %div
-  %b name
+  %b Nickname
   %div
-    = @user.name
+    = @user.nickname
 
 
-%div
-  = link_to 'プロフィール設定編集', edit_user_path(current_user)
+  %div
+    = link_to 'プロフィール設定編集', edit_user_path(params[:id])

@@ -10,8 +10,7 @@
     = render partial: 'common/header'
 
     %div.container
-      %div.row
-        %div.col-lg-12
-        = yield
-      %footer.row.text-center
+      %div.container-main
+      = yield
+      %footer.text-center
         %p (C) Knocal 2017

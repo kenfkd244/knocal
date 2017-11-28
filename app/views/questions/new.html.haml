@@ -1,6 +1,9 @@
 %div
   %div
     = form_for @question do |f|
+      = f.label :title, "題名"
+      = f.text_area :title
+
       = f.label :content, "質問内容"
       = f.text_area :content
 
