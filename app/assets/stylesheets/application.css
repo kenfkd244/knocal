@@ -14,7 +14,19 @@
  *= require_self
  */
 
+.container {
+  width: 750px;
+  margin: 0 auto;
+}
 
 .text-center {
   text-align: center;
+}
+
+div.notice {
+  background-color: green;
+}
+
+div.alert {
+  background-color: red;
 }

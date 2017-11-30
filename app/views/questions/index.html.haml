@@ -4,11 +4,13 @@
       %div.question
         %h4= question.title
         %p= question.content
-        %span
+        %div
+          投稿時間
+          = question.created_at.strftime('%Y年%m月%d日 %H:%M')
+        %div
           投稿者
           = question.user.nickname
       %div
-        %a{ :href => question_path(question) }
-          回答数: #{question.answers.size}
+        =button_to "回答数: #{question.answers.size}", question_path(question), method: :get
       %div
-        = link_to "答える", new_question_answer_path(question)
+        = button_to "答える", new_question_answer_path(question), method: :get

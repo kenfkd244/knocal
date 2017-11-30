@@ -1,6 +1,5 @@
 .header{
-  border: solid;
-  height: 50px;
+  border-bottom: solid;
 }
 
 .header-left{
@@ -11,8 +10,30 @@
   float: right;
 }
 
-/*.clearfix:after{
+ul {
+  height: 50px;
+}
+
+li {
+  height: 50px;
+  display: inline-block;
+}
+
+/*form {
+  height: 50px;
+}
+
+input {
+  height: 50px;
+}*/
+
+form input.button-header {
+  width: 100px;
+  height: 50px;
+}
+
+.clearfix:after{
   content: "";
   clear: both;
   display: block;
-}*/
+}

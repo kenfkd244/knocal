@@ -10,6 +10,9 @@
     = render partial: 'common/header'
 
     %div.container
+      - if flash
+        - flash.each do |key, value|
+          = content_tag(:div, value, class: "#{key}")
       %div.container-main
       = yield
       %footer.text-center

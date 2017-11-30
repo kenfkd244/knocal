@@ -1,8 +1,10 @@
+%table
+  %tr
+    %th ニックネーム
+    %td= @user.nickname
+  %tr
+    %th 郵便番号
+    %td= @user.postnumber
+
 %div
-  %b Nickname
-  %div
-    = @user.nickname
-
-
-  %div
-    = link_to 'プロフィール設定編集', edit_user_path(params[:id])
+  = button_to 'プロフィール編集', edit_user_path(params[:id]), method: :get

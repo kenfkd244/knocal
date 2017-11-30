@@ -4,15 +4,21 @@
       = @question.title
     %p
       = @question.content
-    %span
+    %div
+      投稿時間
+      = @question.created_at.strftime('%Y年%m月%d日 %H:%M')
+    %div
       投稿者
       = @question.user.nickname
   %div
-    = link_to "答える", new_question_answer_path(@question)
+    = button_to "答える", new_question_answer_path(@question), method: :get
   %br
-  - @question.answers.each do |answer|
+  - @answers.each do |answer|
     %div.answer
       %p= answer.content
-      %span
+      %div
+        投稿時間
+        = answer.created_at.strftime('%Y年%m月%d日 %H:%M')
+      %div
         回答者
         = answer.user.nickname

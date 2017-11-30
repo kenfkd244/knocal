@@ -1,13 +1,14 @@
 %div
-  %div
-    = form_for current_user do |f|
-      %h2 登録情報
-      %div
-        %div
-          = f.text_field :name, placeholder: "名前"
-        %div
-          = f.text_field :nickname, placeholder: "ニックネーム"
-        %div
-          = f.text_field :postnumber, placeholder: "郵便番号"
-      %div
-        = f.submit "送信"
+  = form_for current_user do |f|
+    %h2 登録情報
+    %table
+      %tr
+        %th= f.label :name, "名前"
+        %td= f.text_field :name, placeholder: "名前"
+      %tr
+        %th= f.label :nickname, "ニックネーム"
+        %td= f.text_field :nickname, placeholder: "ニックネーム"
+      %tr
+        %th= f.label :postnumber, "郵便番号"
+        %td= f.text_field :postnumber, placeholder: "郵便番号"
+    %div= f.submit "更新"

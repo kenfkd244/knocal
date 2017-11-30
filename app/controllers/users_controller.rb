@@ -9,7 +9,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
+    if current_user.update(user_params)
+      redirect_to user_path(current_user), notice: "編集できました"
+    else
+      redirect_to edit_user_path(current_user), alert: "Oh, my god"
+    end
   end
 
   private
