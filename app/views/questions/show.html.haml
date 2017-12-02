@@ -11,7 +11,11 @@
       投稿者
       = @question.user.nickname
   %div
-    = button_to "答える", new_question_answer_path(@question), method: :get
+    - if current_user.id == @question.user_id
+      = button_to "編集する", edit_question_path(@question), method: :get
+      = button_to "削除する", question_path(@question), method: :delete
+    - else
+      = button_to "答える", new_question_answer_path(@question), method: :get
   %br
   - @answers.each do |answer|
     %div.answer
@@ -22,3 +26,7 @@
       %div
         回答者
         = answer.user.nickname
+      - if answer.user_id == current_user.id
+        %div
+          = button_to "編集する", edit_question_answer_path(@question, answer), method: :get
+          = button_to "削除する", question_answer_path(@question, answer), method: :delete

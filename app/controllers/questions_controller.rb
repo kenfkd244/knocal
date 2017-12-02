@@ -24,6 +24,29 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    question = Question.find(params[:id])
+    if question.user_id == current_user.id
+      if question.update(question_params)
+        redirect_to root_path, notice: "編集できました！"
+      else
+        redirect_to edit_question_path(question), alert: "Oh, my god"
+      end
+    end
+  end
+
+  def destroy
+    question = Question.find(params[:id])
+    if question.user_id == current_user.id
+      question.destroy
+      redirect_to root_path, notice: "削除できました"
+    end
+  end
+
   private
   def question_params
     params.require(:question).permit(:content, :title)

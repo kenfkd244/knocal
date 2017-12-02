@@ -1,0 +1,11 @@
+%div
+  %div
+    = form_for @question do |f|
+      %table
+        %tr
+          %th= f.label :title, "題名"
+          %td= f.text_area :title
+        %tr
+          %th= f.label :content, "質問内容"
+          %td= f.text_area :content
+      = f.submit "編集"

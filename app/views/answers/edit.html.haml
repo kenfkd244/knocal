@@ -1,0 +1,18 @@
+%div
+  %div.question
+    %h4= @question.title
+    %p= @question.content
+    %div
+      投稿時間
+      = @question.created_at.strftime('%Y年%m月%d日 %H:%M')
+    %div
+      投稿者
+      = @question.user.nickname
+  %br
+  %div
+    = form_for [@question, @answer] do |f|
+      %table
+        %tr
+          %th= f.label :content, "回答内容"
+          %td= f.text_area :content
+      = f.submit "編集"

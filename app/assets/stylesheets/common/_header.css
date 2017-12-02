@@ -19,16 +19,7 @@ li {
   display: inline-block;
 }
 
-/*form {
-  height: 50px;
-}
-
-input {
-  height: 50px;
-}*/
-
-form input.button-header {
-  width: 100px;
+.button_to input[type="submit"] {
   height: 50px;
 }
 
