@@ -1,6 +1,6 @@
 %div.header.clearfix
   %div.header-left
-    %h1= link_to 'Knocal', root_path
+    = link_to 'Knocal', root_path, :class => "header-title"
   %div.header-right
     - if user_signed_in?
       %ul

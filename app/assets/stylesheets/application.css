@@ -24,9 +24,17 @@
 }
 
 div.notice {
-  background-color: green;
+  background-color: #58FA58;
 }
 
 div.alert {
-  background-color: red;
+  background-color: #FA5858;
+}
+
+body {
+  background-color: #F2F2F2;
+}
+
+.create-time, .create-person {
+  font-size: 5px;
 }

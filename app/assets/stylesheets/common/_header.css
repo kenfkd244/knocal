@@ -1,13 +1,21 @@
 .header{
-  border-bottom: solid;
+  background-color: #FAAC58;
+  height: 50px;
 }
 
 .header-left{
   float: left;
+  height: 50px;
 }
 
 .header-right{
   float: right;
+  height: 50px;
+}
+
+.header-title {
+  vertical-align: middle;
+  font-size: 30px;
 }
 
 ul {

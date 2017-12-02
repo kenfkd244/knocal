@@ -1,13 +1,24 @@
+%div#map
+:javascript
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 35.0258, lng: 135.761},
+      zoom: 14
+    });
+  }
+%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyADmBdh0GEa0VvbPYq0DD-CxCX6V8wzJmI&callback=initMap"}
+
 %div.question-list
   - @questions.each do |question|
     %div.question-block
       %div.question
         %h4= question.title
         %p= question.content.truncate(10)
-        %div
+        %div.create-time
           投稿時間
           = question.created_at.strftime('%Y年%m月%d日 %H:%M')
-        %div
+        %div.create-person
           投稿者
           = question.user.nickname
       %div

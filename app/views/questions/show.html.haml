@@ -1,32 +1,31 @@
-%div.question-block
-  %div.question
-    %h4
-      = @question.title
-    %p
-      = @question.content
-    %div
-      投稿時間
-      = @question.created_at.strftime('%Y年%m月%d日 %H:%M')
-    %div
-      投稿者
-      = @question.user.nickname
+%div.question-content
+  %h4
+    = @question.title
+  %p
+    = @question.content
+  %div.create-time
+    投稿時間
+    = @question.created_at.strftime('%Y年%m月%d日 %H:%M')
+  %div.create-person
+    投稿者
+    = @question.user.nickname
   %div
     - if current_user.id == @question.user_id
       = button_to "編集する", edit_question_path(@question), method: :get
       = button_to "削除する", question_path(@question), method: :delete
     - else
       = button_to "答える", new_question_answer_path(@question), method: :get
-  %br
-  - @answers.each do |answer|
-    %div.answer
-      %p= answer.content
+%br
+- @answers.each do |answer|
+  %div.answer-content
+    %p= answer.content
+    %div.create-time
+      投稿時間
+      = answer.created_at.strftime('%Y年%m月%d日 %H:%M')
+    %div.create-person
+      回答者
+      = answer.user.nickname
+    - if answer.user_id == current_user.id
       %div
-        投稿時間
-        = answer.created_at.strftime('%Y年%m月%d日 %H:%M')
-      %div
-        回答者
-        = answer.user.nickname
-      - if answer.user_id == current_user.id
-        %div
-          = button_to "編集する", edit_question_answer_path(@question, answer), method: :get
-          = button_to "削除する", question_answer_path(@question, answer), method: :delete
+        = button_to "編集する", edit_question_answer_path(@question, answer), method: :get
+        = button_to "削除する", question_answer_path(@question, answer), method: :delete

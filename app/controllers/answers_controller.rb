@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
     @answer.user_id = current_user.id
     if @answer.save
-      redirect_to root_path, method: :get, success: "Success!"
+      redirect_to root_path, method: :get, notice: "Success!"
     else
       redirect_to new_question_answer_path(@question), method: :get, alert: "Oh, my god!"
     end
