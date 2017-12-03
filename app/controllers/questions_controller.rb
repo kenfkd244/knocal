@@ -3,6 +3,10 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all.order("created_at DESC")
+    respond_to do |f|
+      f.html
+      f.json { render json: @questions }
+    end
   end
 
   def show

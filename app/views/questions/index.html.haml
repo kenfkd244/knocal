@@ -1,19 +1,35 @@
 %div#map
 :javascript
   var map;
+  var marker = [];
+  var data = [];
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 35.0258, lng: 135.761},
       zoom: 14
     });
-    - @questions.each do |question|
-      - question_lat = question.try(:lat)
-      - question_lng = question.try(:lng)
-      var marker = new google.maps.Marker({
-        position: {lat: question_lat , lng: question_lng },
-        map: map
+
+    if ($('.question-block').length) {
+      $.ajax({
+        type: 'GET',
+        url: '/questions.json'
+      }).done(function(json) {
+        for (var i = 0; i <= json.length-1; i++) {
+          data.push(
+            {'id' : json[i].id, 'lat' : json[i].lat, 'lng' : json[i].lng}
+          );
+        }
+        for (var i = 0; i < data.length; i++) {
+          var markerLatLng = {lat: data[i]['lat'], lng: data[i]['lng']};
+          marker[i] = new google.maps.Marker({
+            position: markerLatLng,
+            map: map
+          });
+        }
       });
+    }
   }
+
 %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyADmBdh0GEa0VvbPYq0DD-CxCX6V8wzJmI&callback=initMap"}
 
 %div.question-list
