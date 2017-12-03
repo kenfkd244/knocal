@@ -25,10 +25,14 @@
 
 div.notice {
   background-color: #58FA58;
+  border-radius: 5px;
+  padding-left: 15px;
 }
 
 div.alert {
   background-color: #FA5858;
+  border-radius: 5px;
+  padding-left: 15px;
 }
 
 body {

@@ -11,9 +11,9 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
     @answer.user_id = current_user.id
     if @answer.save
-      redirect_to root_path, method: :get, notice: "Success!"
+      redirect_to root_path, method: :get, notice: "回答できました！"
     else
-      redirect_to new_question_answer_path(@question), method: :get, alert: "Oh, my god!"
+      redirect_to new_question_answer_path(@question), method: :get, alert: "項目漏れがあります..."
     end
   end
 
@@ -29,7 +29,7 @@ class AnswersController < ApplicationController
       if answer.update(answer_params)
         redirect_to root_path, notice: "編集できました！"
       else
-        redirect_to edit_question_answer_path(question, answer), alert: "Oh, my god"
+        redirect_to edit_question_answer_path(question, answer), alert: "項目漏れがあります..."
       end
     end
   end

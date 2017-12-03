@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to root_path, notice: "質問できました！"
     else
-      redirect_to new_question_path(@question), alert: "Oh, my god"
+      redirect_to new_question_path(@question), alert: "項目漏れがあります..."
     end
   end
 
@@ -34,7 +34,7 @@ class QuestionsController < ApplicationController
       if question.update(question_params)
         redirect_to root_path, notice: "編集できました！"
       else
-        redirect_to edit_question_path(question), alert: "Oh, my god"
+        redirect_to edit_question_path(question), alert: "項目漏れがあります..."
       end
     end
   end
