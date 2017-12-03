@@ -6,6 +6,13 @@
       center: {lat: 35.0258, lng: 135.761},
       zoom: 14
     });
+    - @questions.each do |question|
+      - question_lat = question.try(:lat)
+      - question_lng = question.try(:lng)
+      var marker = new google.maps.Marker({
+        position: {lat: question_lat , lng: question_lng },
+        map: map
+      });
   }
 %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyADmBdh0GEa0VvbPYq0DD-CxCX6V8wzJmI&callback=initMap"}
 

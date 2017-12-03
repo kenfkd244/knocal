@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128053950) do
+ActiveRecord::Schema.define(version: 20171203142943) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content",     limit: 65535, null: false
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20171128053950) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.text     "title",      limit: 65535, null: false
+    t.float    "lat",        limit: 24
+    t.float    "lng",        limit: 24
   end
 
   create_table "users", force: :cascade do |t|

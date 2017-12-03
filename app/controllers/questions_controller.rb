@@ -17,6 +17,18 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.user_id = current_user.id
+
+    address = URI.encode(current_user.postnumber)
+    reqUrl = "http://maps.google.com/maps/api/geocode/json?address=#{address}&sensor=false&language=ja"
+    response = Net::HTTP.get_response(URI.parse(reqUrl))
+
+    case response
+    when Net::HTTPSuccess then
+      data = JSON.parse(response.body)
+      @question.lat = data['results'][0]['geometry']['location']['lat']
+      @question.lng = data['results'][0]['geometry']['location']['lng']
+    end
+
     if @question.save
       redirect_to root_path, notice: "質問できました！"
     else
