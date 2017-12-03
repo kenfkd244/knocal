@@ -2,8 +2,37 @@
   background-color: #FFFFFF;
 }
 
+.question-content1 {
+  width: 80%;
+  margin: 0 auto 10px;
+  padding-bottom: 5px;
+}
+
+.answer-block {
+  background-color: #FFFFFF;
+}
+
 #map {
   margin: 10px auto 10px;
-  height: 300px;
+  height: 400px;
   width: 80%;
+}
+
+div.count-display {
+  margin-top: 5px;
+}
+
+a.body-button {
+  background-color: #FFFFFF;
+  border: 1px solid #FAAC58;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000000;
+}
+
+a.body-button:hover {
+  color: white;
+  background-color: #999;
 }

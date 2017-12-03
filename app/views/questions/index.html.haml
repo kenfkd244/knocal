@@ -12,19 +12,17 @@
 %div.question-list
   - @questions.each do |question|
     %div.question-block
-      %div.question
+      %div.question-content1
         %h4= question.title
-        %p= question.content.truncate(10)
+        %p= question.content.truncate(20)
         %div.create-time
-          投稿時間
           = question.created_at.strftime('%Y年%m月%d日 %H:%M')
-        %div.create-person
           投稿者
           = question.user.nickname
-      %div
-        = button_to "回答数: #{question.answers.size}", question_path(question), method: :get
-      %div
-        - if question.user_id == current_user.id
-          = button_to "編集する", edit_question_path(question), method: :get
-        - else
-          = button_to "答える", new_question_answer_path(question), method: :get
+        %div.count-display
+          %a.body-button{ :href => question_path(question) } 回答数：#{question.answers.size}
+        / %div.action-button
+        /   - if question.user_id == current_user.try(:id)
+        /     %a.body-button{ :href => edit_question_path(question) } 編集する
+        /   - else
+        /     %a.body-button{ :href => new_question_answer_path(question) } 答える

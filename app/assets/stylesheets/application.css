@@ -35,6 +35,19 @@ body {
   background-color: #F2F2F2;
 }
 
+.form-table{
+  margin-left: 40px
+}
+
 .create-time, .create-person {
   font-size: 5px;
+}
+
+div.profile {
+  float: right;
+}
+
+footer {
+  border-top: 1px solid;
+  margin-top: 10px;
 }

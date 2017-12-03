@@ -1,6 +1,19 @@
 .header{
   background-color: #FAAC58;
   height: 50px;
+/*  width: 750px;
+  margin: 0 auto;*/
+}
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media only screen and (max-devise-width: 750px){
+  .wrapper {
+    width: 100%;
+  }
 }
 
 .header-left{
@@ -16,19 +29,26 @@
 .header-title {
   vertical-align: middle;
   font-size: 30px;
+  color: #000000;
+  text-decoration: none;
+  line-height: 50px;
+  font-weight: bold;
 }
 
-ul {
-  height: 50px;
+a.header-button {
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 50px;
 }
 
-li {
-  height: 50px;
-  display: inline-block;
-}
-
-.button_to input[type="submit"] {
-  height: 50px;
+a.header-button:hover {
+  color: white;
+  background-color: #999;
 }
 
 .clearfix:after{

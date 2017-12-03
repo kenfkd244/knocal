@@ -1,19 +1,12 @@
 %div.header.clearfix
-  %div.header-left
-    = link_to 'Knocal', root_path, :class => "header-title"
-  %div.header-right
-    - if user_signed_in?
-      %ul
-        %li
-          = button_to "質問する", new_question_path, :method => :get, :class => "button-header", :type => "button"
-        %li
-          = button_to "マイページ", user_path(current_user), :method => :get, :class => "button-header"
-        %li
-          = button_to "ログアウト", destroy_user_session_path, :method => :delete, :class => "button-header"
-
-    - else
-      %ul
-        %li
-          = button_to "ログイン", new_user_session_path, :method => :get, :class => "button-header"
-        %li
-          = button_to "新規登録", new_user_registration_path, :method => :get, :class => "button-heade"
+  %div.wrapper
+    %div.header-left
+      = link_to 'Knocal', root_path, :class => "header-title"
+    %div.header-right
+      - if user_signed_in?
+        %a.header-button{ :href => new_question_path } 質問する
+        %a.header-button{ :href => user_path(current_user) } マイページ
+        %a.header-button{ :href => destroy_user_session_path, :"data-method" => :delete } ログアウト
+      - else
+        %a.header-button{ :href => new_user_session_path } ログイン
+        %a.header-button{ :href => new_user_registration_path } 新規登録
