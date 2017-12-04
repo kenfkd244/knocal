@@ -21,16 +21,18 @@ function initMap() {
         );
       }
       for (var i = 0; i < data.length; i++) {
-        var markerLatLng = {lat: data[i]['lat'], lng: data[i]['lng']};
-        var contentString = '<a href="/questions/' + data[i]['question_id'] + '"> 質問を見る</a>';
-        marker[i] = new google.maps.Marker({
-          position: markerLatLng,
-          map: map
-        });
-        windows[i] = new google.maps.InfoWindow({
-          content: contentString
-        });
-        markerEvent(i);
+        if (data[i]['lat'] && data[i]['lng']) {
+          var markerLatLng = {lat: data[i]['lat'], lng: data[i]['lng']};
+          var contentString = '<a href="/questions/' + data[i]['question_id'] + '"> 質問を見る</a>';
+          marker[i] = new google.maps.Marker({
+            position: markerLatLng,
+            map: map
+          });
+          windows[i] = new google.maps.InfoWindow({
+            content: contentString
+          });
+          markerEvent(i);
+        }
       }
     });
   }
