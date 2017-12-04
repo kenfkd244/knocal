@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
     @question.user_id = current_user.id
 
     address = URI.encode(current_user.postnumber)
-    reqUrl = "https://maps.google.com/maps/api/geocode/json?address=#{address}&key=AIzaSyADmBdh0GEa0VvbPYq0DD-CxCX6V8wzJmI"
+    reqUrl = "https://maps.google.com/maps/api/geocode/json?address=#{address}&key=AIzaSyD9rDSkX9kA2vYe1z_cSgzVidRA8zkIIDM"
     response = Net::HTTP.get_response(URI.parse(reqUrl))
 
     case response
