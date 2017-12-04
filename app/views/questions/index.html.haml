@@ -1,5 +1,13 @@
 %div#map
-%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyD9rDSkX9kA2vYe1z_cSgzVidRA8zkIIDM&callback=initMap"}
+:javascript
+  if(window.google) {
+    initMap();
+  } else {
+    $.ajax("https://maps.googleapis.com/maps/api/js?key=AIzaSyD9rDSkX9kA2vYe1z_cSgzVidRA8zkIIDM&callback=initMap", {
+      crossDomain: true,
+      dataType: 'script'
+    });
+  }
 
 %div.question-list
   - @questions.each do |question|
