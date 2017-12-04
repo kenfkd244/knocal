@@ -3,8 +3,8 @@
     %table
       %tr
         %th= f.label :title, "題名"
-        %td= f.text_area :title
+        %td= f.text_area :title, :size => "50x1"
       %tr
         %th= f.label :content, "質問内容"
-        %td= f.text_area :content
+        %td= f.text_area :content, :size => "50x6"
     = f.submit "編集"
