@@ -13,7 +13,7 @@
       - if @question.user_id == current_user.try(:id)
         %div.action-button
           %a{ :href => edit_question_path(@question) } 編集する
-          %a{ :href => question_path(@question), :"data-method" => :delete} 削除する
+          %a{ :href => question_path(@question), data: { method: :delete, confirm: "削除してよろしいですか？" } } 削除する
       - else
         %a.body-button{ :href => new_question_answer_path(@question) } 答える
 
@@ -32,4 +32,4 @@
       - if answer.user_id == current_user.try(:id)
         %div.action-button
           %a{ :href => edit_question_answer_path(@question, answer) } 編集する
-          %a{ :href => question_answer_path(@question, answer), :"data-method" => :delete } 削除する
+          %a{ :href => question_answer_path(@question, answer), data: { method: :delete, confirm: "削除してよろしいですか？" } } 削除する
