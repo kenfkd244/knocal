@@ -13,8 +13,3 @@
           = question.user.nickname
         %div.count-display
           %a.body-button{ :href => question_path(question) } 回答数：#{question.answers.size}
-        / %div.action-button
-        /   - if question.user_id == current_user.try(:id)
-        /     %a.body-button{ :href => edit_question_path(question) } 編集する
-        /   - else
-        /     %a.body-button{ :href => new_question_answer_path(question) } 答える
